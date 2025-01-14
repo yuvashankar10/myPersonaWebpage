@@ -1,36 +1,278 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Personal Webpage</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #6a11cb;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    section {
+      margin: 2rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    section img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 1rem auto;
+    }
+    a {
+      color: #6a11cb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: white;
+    }
+    /* Thumbs Up/Down Styles */
+    .feedback-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .thumb-button {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      margin: 0 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .thumb-button:hover {
+      transform: scale(1.2);
+    }
+    .thumb-button:focus {
+      outline: none;
+    }
+    /* Feedback Form Styles */
+    .feedback-form {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .feedback-input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .submit-feedback {
+      background-color: #6a11cb;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .submit-feedback:hover {
+      background-color: #5a0eb8;
+    }
+    /* Display Comments */
+    .comments-section {
+      margin-top: 2rem;
+    }
+    .comment {
+      background: #f9f9f9;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .comment .username {
+      font-weight: bold;
+    }
+    /* Thumbs Count */
+    .thumbs-count {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    /* Contact Section */
+    #contact {
+      margin-top: 2rem;
+    }
+    #contact p {
+      margin: 10px 0;
+    }
+    /* Qualification and Specialized In Sections */
+    .qualification, .specialized {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <h1>Welcome to My Webpage</h1>
     <p>Hello! I'm Yuvashankar M S.</p>
   </header>
 
+  <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>This is a short bio about myself. Hi, I'm Yuvashankar M S, a 20-year-old engineering student currently pursuing a B.Tech in Instrumentation and Control Engineering (3rd year). I am passionate about exploring the intersection of web development and AI tools, leveraging technology to create innovative solutions.
-
-        When I'm not diving into code, you'll find me indulging in my hobbies: playing games and binge-watching web series.
-        
-        Feel free to connect and join me on this exciting journey in tech and beyond!.</p>
-    <img src="profile.jpg" alt="My Profile Picture" style="width:150px;height:150px;border-radius:50%;">
+    <p>Hi, I'm Yuvashankar M S, a 20-year-old engineering student currently pursuing a B.Tech in Instrumentation and Control Engineering (3rd year). I am passionate about exploring the intersection of web development and AI tools, leveraging technology to create innovative solutions.</p>
+    <p>When I'm not diving into code, you'll find me indulging in my hobbies: playing games and binge-watching web series.</p>
+    <img src="profile.jpg" alt="My Profile Picture">
   </section>
 
+  <!-- Qualification Section -->
+  <section class="qualification">
+    <h2>Qualification</h2>
+    <ul>
+      <li>SSLC: 80%</li>
+      <li>HSLC: 77.67%</li>
+      <li>CGPA: 7.29</li>
+    </ul>
+  </section>
+
+  <!-- Specialized In Section -->
+  <section class="specialized">
+    <h2>Specialized In</h2>
+    <ul>
+      <li>Python</li>
+      <li>JavaScript</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:yourname@example.com">yuvashankarms10@gmail.com</a></p>
     <p>Phone: 9385591566</p>
     <p>Social: <a href="https://www.linkedin.com/in/yuvashankar-m-s-babb68261?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+    <p>Anonymous: <a href="https://www.secretmessage.link/secret/67869943e32b1/" target="_blank">Secretmessage</a></p>
   </section>
 
+  <!-- Feedback Section -->
+  <section id="feedback">
+    <h2>Give Your Feedback</h2>
+
+    <!-- User Name Input -->
+    <div class="feedback-form">
+      <input type="text" id="user-name" placeholder="Enter your name" required><br>
+      <textarea class="feedback-input" id="feedback-text" placeholder="Share your thoughts here..."></textarea><br>
+      <button class="submit-feedback" onclick="submitFeedbackForm()">Submit Feedback</button>
+    </div>
+
+    <!-- Thumbs Up/Down Buttons -->
+    <div class="feedback-buttons">
+      <button class="thumb-button" id="thumbs-up" onclick="vote('thumbs-up')">👍</button>
+      <button class="thumb-button" id="thumbs-down" onclick="vote('thumbs-down')">👎</button>
+    </div>
+
+    <!-- Thumbs Count -->
+    <div class="thumbs-count">
+      <p>Thumbs Up: <span id="thumbs-up-count">0</span></p>
+      <p>Thumbs Down: <span id="thumbs-down-count">0</span></p>
+    </div>
+
+    <!-- Display Comments -->
+    <div id="comments-section" class="comments-section">
+      <h3>Comments</h3>
+      <!-- Comments will be added here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 [Your Name]. All Rights Reserved.</p>
+    <p>&copy; 2025 Me. All Rights Reserved.</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    let thumbsUpCount = localStorage.getItem("thumbsUpCount") || 0;
+    let thumbsDownCount = localStorage.getItem("thumbsDownCount") || 0;
+
+    // Display Thumbs Count
+    document.getElementById("thumbs-up-count").innerText = thumbsUpCount;
+    document.getElementById("thumbs-down-count").innerText = thumbsDownCount;
+
+    // Function to handle thumbs up/down vote
+    function vote(type) {
+      if (type === 'thumbs-up') {
+        thumbsUpCount++;
+        localStorage.setItem("thumbsUpCount", thumbsUpCount);
+      } else if (type === 'thumbs-down') {
+        thumbsDownCount++;
+        localStorage.setItem("thumbsDownCount", thumbsDownCount);
+      }
+
+      // Update displayed counts
+      document.getElementById("thumbs-up-count").innerText = thumbsUpCount;
+      document.getElementById("thumbs-down-count").innerText = thumbsDownCount;
+    }
+
+    // Function to handle feedback form submission
+    function submitFeedbackForm() {
+      const userName = document.getElementById('user-name').value.trim();
+      const feedbackText = document.getElementById('feedback-text').value.trim();
+
+      if (!userName || !feedbackText) {
+        alert("Please provide both your name and feedback.");
+        return;
+      }
+
+      const newComment = document.createElement('div');
+      newComment.classList.add('comment');
+      newComment.innerHTML = `
+        <p class="username">${userName}</p>
+        <p>${feedbackText}</p>
+      `;
+
+      // Add the new comment to the comments section
+      const commentsSection = document.getElementById('comments-section');
+      commentsSection.appendChild(newComment);
+
+      // Store the feedback in localStorage to keep it across sessions
+      let comments = JSON.parse(localStorage.getItem("comments")) || [];
+      comments.push({ name: userName, text: feedbackText });
+      localStorage.setItem("comments", JSON.stringify(comments));
+
+      // Clear the form
+      document.getElementById('user-name').value = '';
+      document.getElementById('feedback-text').value = '';
+    }
+
+    // Load previous comments from localStorage
+    window.onload = function() {
+      const storedComments = JSON.parse(localStorage.getItem("comments")) || [];
+      storedComments.forEach(comment => {
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.innerHTML = `
+          <p class="username">${comment.name}</p>
+          <p>${comment.text}</p>
+        `;
+        document.getElementById('comments-section').appendChild(newComment);
+      });
+    };
+  </script>
+
 </body>
 </html>
+
